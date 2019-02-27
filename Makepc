@@ -1,0 +1,17 @@
+define gmp_pc
+prefix=$(cur__install)
+exec_prefix=$${prefix}
+includedir=$${prefix}/include
+libdir=$${exec_prefix}/lib
+
+Name: gmp
+Description: GNU Multiple Precision Arithmetic Library
+Version: $(cur__version)
+Cflags: -I$${includedir}
+Libs: -L$${libdir} -lgmp
+endef
+export gmp_pc
+
+pc:
+	mkdir $(cur__install)/lib/pkgconfig
+	echo "$$gmp_pc" > $(cur__install)/lib/pkgconfig/gmp.pc
