@@ -3,7 +3,13 @@
   "version": "6.1.2000",
   "esy": {
     "build": [
-      "./configure --prefix=#{self.install} --enable-pic --enable-cxx",
+      [
+        "./configure",
+        "--prefix=#{self.install}",
+        "--enable-cxx",
+        "--with-pic",
+        "--disable-shared"
+      ],
       "make"
     ],
     "buildsInSource": true,
